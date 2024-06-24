@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import Header from './components/Header.js';
-import ToDoTask from './components/ToDoTask.js'
+import ToDoTask from './components/ToDoTask.js';
+import AddTask from './components/AddTask.js';
 
 function App() {
   const [tasks, setTasks] = useState([{ name: "clean the house", checked: false, update: false }, { name: "buy food", checked: true, update: false }]);
@@ -46,6 +47,7 @@ function cancelUpdate(index) {
           cancelUpdate={cancelUpdate}
         />
       ))}
+      <AddTask />
     </div>
   );
 }
