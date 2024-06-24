@@ -11,6 +11,11 @@ function checkTask(index) {
   setTasks(newTasks);
 }
 
+function deleteTask(index) {
+  const newTasks = [...tasks].filter((task, i) => i !== index);
+  setTasks(newTasks);
+}
+
   return (
     <div className="container">
       <Header />
@@ -20,6 +25,7 @@ function checkTask(index) {
           index={index}
           task={task}
           checkTask={checkTask}
+          deleteTask={deleteTask}
         />
       ))}
     </div>

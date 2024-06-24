@@ -1,6 +1,6 @@
-function ToDoTask({ index, task, checkTask }) {
+function ToDoTask({ index, task, checkTask, deleteTask }) {
 
-    
+
     return (
         <div className='task'>
             <div className={task.checked ? "task-name task-checked" : "task-name"}>{task.name}</div>
@@ -8,8 +8,16 @@ function ToDoTask({ index, task, checkTask }) {
                 {
                     task.checked ? "" : <button id={`update-` + index}>Update</button>
                 }
-                <button id={`delete-` + index}>Delete</button>
-                <button id={`check-` + index} onClick={() => checkTask(index)}>{task.checked ? "Uncheck" : "Check"}</button>
+                <button
+                    id={`delete-` + index}
+                    onClick={() => deleteTask(index)}>
+                    Delete
+                </button>
+                <button
+                    id={`check-` + index}
+                    onClick={() => checkTask(index)}>
+                    {task.checked ? "Uncheck" : "Check"}
+                </button>
             </div>
         </div>
     )
