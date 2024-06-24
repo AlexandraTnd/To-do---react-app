@@ -8,7 +8,7 @@
 body {
   background-color: #001514;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,4 +76,29 @@ input {
   background-color: rgb(230, 248, 178);
   width: 70%;
   font-size: 1.2rem;
+}
+
+.add-task-content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.add-btn {
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1.2rem;
+}
+
+.add-btn:hover {
+  background-color: rgb(87, 224, 178);
+  /* color: white; */
+}
+
+#add-task-input {
+  border-radius: 5px;
+}
+
+.green-text {
+  color: rgb(87, 224, 178);
 }

@@ -35,7 +35,7 @@ function cancelUpdate(index) {
 
 function addNewTask(task) {
   setTasks((prevTasks) => [...prevTasks, {name: task, updade: false, checked: false}]);
-  document.getElementById('addTaskInput').value = "";
+  document.getElementById('add-task-input').value = "";
 }
 
   return (
