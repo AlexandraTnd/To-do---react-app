@@ -21,7 +21,7 @@ function ToDoTask({ index, task, checkTask, deleteTask, updateTask, cancelUpdate
                     task.checked ? "" :
                         <button
                             id={`update-` + index}
-                            onClick={() => updatedTaskName !== task.name ? updateTask(updatedTaskName, index) : updateTask("", index)}
+                            onClick={() => task.update ? updateTask(updatedTaskName, index) : updateTask("", index)}
                         >
                             Update
                         </button>
