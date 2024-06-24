@@ -7,7 +7,12 @@ function ToDoTask({ index, task, checkTask, deleteTask, updateTask, cancelUpdate
         <div className='task'>
             {
                 task.update ?
-                    <input defaultValue={task.name} onChange={(e) => setupdatedTaskName(e.target.value)}></input> :
+                    <input
+                        defaultValue={task.name}
+                        onChange={(e) => setupdatedTaskName(e.target.value)}
+                        onKeyDown={(e) => e.key=== 'Enter' ? updateTask(updatedTaskName, index) : ""}
+                        autoFocus>
+                    </input> :
                     <div className={task.checked ? "task-name task-checked" : "task-name"}>{task.name}</div>
             }
 
@@ -31,7 +36,7 @@ function ToDoTask({ index, task, checkTask, deleteTask, updateTask, cancelUpdate
                 }
                 {
                     task.update ?
-                        <button onClick={() => {cancelUpdate(index); setupdatedTaskName(task.name)}}>Cancel</button> :
+                        <button onClick={() => { cancelUpdate(index); setupdatedTaskName(task.name) }}>Cancel</button> :
                         <button
                             id={`check-` + index}
                             onClick={() => checkTask(index)}>
