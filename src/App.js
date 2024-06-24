@@ -33,6 +33,11 @@ function cancelUpdate(index) {
     setTasks(newTasks);
 }
 
+function addNewTask(task) {
+  setTasks((prevTasks) => [...prevTasks, {name: task, updade: false, checked: false}]);
+  document.getElementById('addTaskInput').value = "";
+}
+
   return (
     <div className="container">
       <Header />
@@ -47,7 +52,9 @@ function cancelUpdate(index) {
           cancelUpdate={cancelUpdate}
         />
       ))}
-      <AddTask />
+      <AddTask 
+        addNewTask={addNewTask}
+      />
     </div>
   );
 }

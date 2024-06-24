@@ -1,14 +1,20 @@
-import { useState } from "react";
+function AddTask({addNewTask}) {
+    
 
-function AddTask() {
-    const [newtask, setNewTask] = useState();
-
-
+    function handleNewTask(event) {
+        if (event.key === 'Enter') {
+            addNewTask(event.target.value);
+        }
+    }
 
     return (
         <div id="add-task-content" className="container">
             <div>Add Task</div>
-            <input type='text' />
+            <input
+                id="addTaskInput"
+                type='text'
+                onKeyDown={(e) => handleNewTask(e)}
+            />
         </div>
     )
 }
