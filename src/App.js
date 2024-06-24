@@ -7,36 +7,36 @@ import AddTask from './components/AddTask.js';
 function App() {
   const [tasks, setTasks] = useState([{ name: "clean the house", checked: false, update: false }, { name: "buy food", checked: true, update: false }]);
 
-function checkTask(index) {
-  const newTasks = tasks.map((task,i) => i===index ? {name: task.name, checked: !task.checked} : task);
-  setTasks(newTasks);
-}
-
-function deleteTask(index) {
-  const newTasks = [...tasks].filter((task, i) => i !== index);
-  setTasks(newTasks);
-}
-
-function updateTask(taskName, index) {
-  if (taskName === "") {
-    const newTasks = tasks.map((task,i) => i===index ? {name: task.name, update: !task.update} : task);
+  function checkTask(index) {
+    const newTasks = tasks.map((task, i) => i === index ? { name: task.name, checked: !task.checked } : task);
     setTasks(newTasks);
   }
-  else {
-    const newTasks = tasks.map((task,i) => i === index ? {name: taskName, checked: false, update:false} : task);
+
+  function deleteTask(index) {
+    const newTasks = [...tasks].filter((task, i) => i !== index);
     setTasks(newTasks);
   }
-}
 
-function cancelUpdate(index) {
-  const newTasks = tasks.map((task,i) => i===index ? {name: task.name, update: !task.update} : task);
+  function updateTask(taskName, index) {
+    if (taskName === "") {
+      const newTasks = tasks.map((task, i) => i === index ? { ...task, update: true } : { ...task, update: false });
+      setTasks(newTasks);
+    }
+    else {
+      const newTasks = tasks.map((task, i) => i === index ? { name: taskName, checked: false, update: false } : task);
+      setTasks(newTasks);
+    }
+  }
+
+  function cancelUpdate(index) {
+    const newTasks = tasks.map((task, i) => i === index ? { name: task.name, update: !task.update } : task);
     setTasks(newTasks);
-}
+  }
 
-function addNewTask(task) {
-  setTasks((prevTasks) => [...prevTasks, {name: task, updade: false, checked: false}]);
-  document.getElementById('add-task-input').value = "";
-}
+  function addNewTask(task) {
+    setTasks((prevTasks) => [...prevTasks, { name: task, updade: false, checked: false }]);
+    document.getElementById('add-task-input').value = "";
+  }
 
   return (
     <div className="container">
@@ -52,7 +52,7 @@ function addNewTask(task) {
           cancelUpdate={cancelUpdate}
         />
       ))}
-      <AddTask 
+      <AddTask
         addNewTask={addNewTask}
       />
     </div>
